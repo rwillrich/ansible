@@ -7,6 +7,12 @@ Vagrant.configure(2) do |config|
     virtualbox.cpus = 2
   end
 
-  config.vm.define :development
+  config.vm.define :development do |development|
+    development.vm.provision 'ansible' do |ansible|
+      ansible.playbook = 'ansible/site.yml'
+      ansible.inventory_path = 'ansible/development'
+      ansible.ask_vault_pass = true
+    end
+  end
 
 end
