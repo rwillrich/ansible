@@ -8,7 +8,5 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define :development
-  config.vm.define :staging
-  config.vm.define :production
 
 end
